@@ -5,6 +5,8 @@ stages:
 
 build_job:
   stage: build
+  tags:
+    - windows-runner
   script:
     - New-Item -ItemType Directory -Force -Path dist
     - Copy-Item index.html dist/
@@ -14,6 +16,8 @@ build_job:
 
 test_job:
   stage: test
+  tags:
+    - windows-runner
   script:
     - node --version
     - node test.js
